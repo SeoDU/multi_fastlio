@@ -2,6 +2,10 @@
 
 ---
 
+Youtube: https://www.youtube.com/watch?v=FcOf_IFVa_Y&t=311s    
+
+
+
 This algorithm uses Multi-Livox LIDAR and originated from [https://github.com/hku-mars/FAST_LIO](https://github.com/hku-mars/FAST_LIO)
 
 - Time synchronization was performed using PTP sync.
