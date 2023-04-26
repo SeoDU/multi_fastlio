@@ -1,0 +1,46 @@
+common:
+    lid_topic:  "/livox/lidar" # lidar_192_158_1_110
+    imu_topic:  "/livox/imu_192_158_1_110"
+    time_sync_en: false         # ONLY turn on when external time synchronization is really not possible
+
+preprocess:
+    lidar_type: 0                # 0 for MID360, 1 for Livox SDK1, 2 for Velodyne LiDAR, 3 for ouster LiDAR,
+    scan_line: 1 # livox laser 갯수
+    timestamp_unit: 3                 # 0-second, 1-milisecond, 2-microsecond, 3-nanosecond.
+    blind: 0.1 # 너무 가까우면 무시
+
+multi_lidar: 
+    use_multi: false
+    lidar_type: 1 # 0 for MID360, 1 for Livox SDK1, 2 for Velodyne LiDAR, 3 for ouster LiDAR,
+    lid_topic: "/livox/lidar"
+    scan_line: 1 # livox laser 갯수
+    R_m360_child_r: 0 #-0.00971808 #0.0068126 #3.12813 #3.13459
+    R_m360_child_p: 0.0156858 #0.0134593 #3.11 #3.13694 #3.1383  이거랑
+    R_m360_child_y: 0 #0.0100866 #-0.0105635 #3.13706 #3.13954
+    T_m360_child_x: 0 #0.005772 #0.00850037 #0 #0.0233897 #0.03035962
+    T_m360_child_y: 0 #0.00517936 #-0.00335199 #0 #0.0244295 #0.0257171
+    T_m360_child_z: -0.0727289 #-0.0761985 #-0.0942342 #-0.0890391 이거만 고르면 됨.
+
+mapping:
+    acc_cov: 0.1
+    gyr_cov: 0.1
+    b_acc_cov: 0.0001
+    b_gyr_cov: 0.0001
+    fov_degree:    180
+    det_range:     450.0
+    extrinsic_est_en:  true      # true: enable the online estimation of IMU-LiDAR extrinsic
+    extrinsic_T: [ 0.11, 0.2329, -0.4412 ]
+    extrinsic_R: [ 1, 0, 0,
+                   0, 1, 0,
+                   0, 0, 1]
+
+publish:
+    path_en:  true
+    scan_publish_en:  true       # false: close all the point cloud output
+    dense_publish_en: true       # false: low down the points number in a global-frame point clouds scan.
+    scan_bodyframe_pub_en: true  # true: output the point cloud scans in IMU-body-frame
+
+pcd_save:
+    pcd_save_en: true
+    interval: -1                 # how many LiDAR frames saved in each pcd file; 
+                                 # -1 : all frames will be saved in ONE pcd file, may lead to memory crash when having too much frames.
