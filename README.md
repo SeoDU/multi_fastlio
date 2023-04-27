@@ -2,7 +2,7 @@
 
 ---
 
-[![multi_fast_lio](https://user-images.githubusercontent.com/47074271/234740145-5742ee55-8c82-44bd-9faa-539055eed73f.png)](https://www.youtube.com/watch?v=FcOf_IFVa_Y&t=311s)
+[![multi_fast_lio](https://user-images.githubusercontent.com/47074271/234742994-20d127e4-7d45-4179-884a-6ab18f649af3.jpg)](https://www.youtube.com/watch?v=FcOf_IFVa_Y&t=311s)
 
 
 This algorithm uses Multi-Livox LIDAR and originated from [https://github.com/hku-mars/FAST_LIO](https://github.com/hku-mars/FAST_LIO)
